@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+
 typedef struct word
 {
 	char * ptr;
@@ -83,7 +84,7 @@ int  doSort(char *in)
 
 int main()
 {
-	char *str="there is where there is a a a";
+	char *str="there is where is there is a a a";
 	doSort(str);	
 
 }
