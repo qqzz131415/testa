@@ -1,14 +1,13 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-
 typedef struct word
 {
 	char * ptr;
 	int num;
 }word;
 
-int  doSort(char *in)	
+int  doSort(char *in,char *ou)	
 {
 	
 	word myword[100];
@@ -76,17 +75,23 @@ int  doSort(char *in)
 	int j =0;
 	for(j =0;j<i-1;j++)
 	{
-		printf("%s ",myword[j].ptr);
+		int m=strlen(myword[j].ptr);
+			memcpy(ou,myword[j].ptr,m);
+			*(ou+m)=' ';
+			ou=ou+m+1;
 	}
+		int m=strlen(myword[j].ptr);
+			memcpy(ou,myword[j].ptr,m);
+			*(ou+m)='\0';
 
-		printf("%s\n",myword[j].ptr);
 }
 
 int main()
 {
-	char *str="there is where is there is a a a";
-	doSort(str);	
-
+	char *str="there is where there is a a a";
+	char out[50]={0};
+	doSort(str,out);	
+	printf("%s\n",out);
 }
 
 
