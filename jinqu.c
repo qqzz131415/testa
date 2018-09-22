@@ -59,7 +59,7 @@ return;
 int main()
 {
 
-	char * num="0 0 0 0 0 0 0 zhoujianqiang";
+	char * num="0 0 0 0 0 0 0 zzz";
 	char ss[20]={0};
 	getscore(num,ss);
 	printf("%s\n",ss);
