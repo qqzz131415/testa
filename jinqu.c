@@ -1,15 +1,14 @@
 #include<stdio.h>
+#include<string.h>
 #include<stdlib.h>
 void getscore(char *instring,char *outstring)
 {	
 	char *instringptr=instring;
 	int index=7;
 	int temp=0;
-	int a[7]={0};
+	double a[7]={0};
 	int i=0;
-	int max=0;
-	int min=10;
-	int sum=0;
+	double sum=0;
 	while(index--)
 	{
 		temp=atoi(instring);
@@ -25,6 +24,8 @@ void getscore(char *instring,char *outstring)
 	{
 		*outstring++=*instring++;
 	}
+	double max=a[0];
+	double min=a[0];
 	for(int j=0;j<7;j++)
 	{
 		if(max<a[j])
@@ -39,13 +40,15 @@ void getscore(char *instring,char *outstring)
 	}
 	double ave=(sum-max-min)/5.0;
 	*outstring++=' ';
-	char *score=(char *)malloc(4);
-	sprintf(score,"%.2lf",ave);
-	while(*score!='\0')
+	char *score=(char *)malloc(strlen(instring));
+	char *scoreptr=score;
+	sprintf(scoreptr,"%.2lf",ave);
+	while(*scoreptr!='\0')
 	{
-	*outstring++=*score++;
+	*outstring++=*scoreptr++;
 	}	
 	*outstring='\0';
+	free(score);
 return;
 
 }
